@@ -3,8 +3,10 @@
 
 void getPlayerInput(int playerN, char *p)
 {
-	printf("Player %d : ", playerN);
-	scanf("%8s", p);
+	do {
+		printf("Player %d : ", playerN);
+		scanf("%8s", p);
+	} while (strcmp(p, "Rock") && strcmp(p, "Paper") && strcmp(p, "Scissors"));
 }
 
 void printWinner(char *p1, char *p2)
