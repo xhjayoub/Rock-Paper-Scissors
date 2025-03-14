@@ -5,7 +5,7 @@ void getPlayerInput(int playerN, char *p)
 {
 	do {
 		printf("Player %d : ", playerN);
-		scanf("%8s", p);
+		scanf("%9s", p);
 	} while (strcmp(p, "Rock") && strcmp(p, "Paper") && strcmp(p, "Scissors"));
 }
 
@@ -25,13 +25,17 @@ void printWinner(char *p1, char *p2)
 int main()
 {
 	printf("Rock Paper Scissors!\n");
+	char playAgain = 'y';
+	char p1[9];
+	char p2[9];
+	while (playAgain == 'y') {
+		getPlayerInput(1, p1);
+		getPlayerInput(2, p2);
 
-	char p1[8];
-	char p2[8];
+		printWinner(p1, p2);
 
-	getPlayerInput(1, p1);
-	getPlayerInput(2, p2);
-
-	printWinner(p1, p2);
+		printf("Play again ? (y or n) ");
+		scanf("%1s", &playAgain);
+	}
 	return 0;
 }
