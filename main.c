@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <string.h>
 
+#define ROCK "Rock"
+#define PAPER "Paper"
+#define SCISSORS "Scissors"
+
 void getPlayerInput(int playerN, char *p)
 {
 	do {
 		printf("Player %d : ", playerN);
 		scanf("%9s", p);
-	} while (strcmp(p, "Rock") && strcmp(p, "Paper") && strcmp(p, "Scissors"));
+	} while (strcmp(p, ROCK) && strcmp(p, PAPER) && strcmp(p, SCISSORS));
 }
 
 void printWinner(char *p1, char *p2)
@@ -15,7 +19,7 @@ void printWinner(char *p1, char *p2)
 	// Check if identical
 	if (!strcmp(p1, p2))
 		printf("Draw");
-	else if ((!strcmp(p1, "Rock") && !strcmp(p2, "Scissors")) || (!strcmp(p1, "Paper") && !strcmp(p2, "Rock")) || (!strcmp(p1, "Scissors") && !strcmp(p2, "Paper")))
+	else if ((!strcmp(p1, ROCK) && !strcmp(p2, SCISSORS)) || (!strcmp(p1, PAPER) && !strcmp(p2, ROCK)) || (!strcmp(p1, SCISSORS) && !strcmp(p2, PAPER)))
 		printf("Player 1 wins!");
 	else
 		printf("Player 2 wins!");
